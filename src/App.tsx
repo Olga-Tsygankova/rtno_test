@@ -1,15 +1,5 @@
 import './App.css';
-interface Dialog {
-    id: number;
-    start_time: string;
-    last_message_time: string;
-    company: string;
-    employee: string;
-    comments: string;
-}
-
-
-
+import Dialogs from "./dialogs";
 function App() {
 
   return (
@@ -17,6 +7,7 @@ function App() {
           <header className="App-header">
               AAAAAAAAAAAAAAAAAAAAAAAAAAAA
           </header>
+          <Dialogs/>
 
       </div>
   );
