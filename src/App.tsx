@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react';
 import './App.css';
-import axios from 'axios';
 interface Dialog {
     id: number;
     start_time: string;
@@ -10,7 +8,7 @@ interface Dialog {
     comments: string;
 }
 
-// Эта функция будет вызвана при монтировании компонента.
+
 
 function App() {
 
