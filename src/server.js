@@ -35,7 +35,7 @@ const pool = new Pool({
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3002',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -43,8 +43,9 @@ app.use(cors({
 app.get('/dialogs_with_comments', async (req, res) => {
     try {
         const client = await pool.connect();
-        const result = await client.query('SELECT * FROM local_dialog_with_comments');
+        const result = await client.query('SELECT * FROM dialogs_with_comments');
         const dialogsWithComments = result.rows;
+        // res.header('Access-Control-Allow-Origin', ' http://localhost:3000'); // use origin enough
         res.setHeader('Content-Type', 'application/json');
         res.json(dialogsWithComments);
         client.release();

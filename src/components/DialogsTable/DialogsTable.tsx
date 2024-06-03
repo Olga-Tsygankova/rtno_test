@@ -3,7 +3,7 @@ import axios, {AxiosError, AxiosResponse} from 'axios';
 import {InfoChat} from "./InfoChat/InfoChat";
 import {Filter} from "./Filter/Filter";
 import {Table} from "./Table/Table";
-import {DialogItem} from "../types/types";
+import {DialogItem} from "../../types/types";
 
 export const DialogsTable = () => {
 
@@ -71,6 +71,23 @@ export const DialogsTable = () => {
             ...prevFilters,
             [field]: value
         }));
+        if (field === 'company') {
+            // Обновляем список сотрудников, когда меняется компания
+            if (value === "") {
+                setEmployees(Array.from(new Set(dialogs.map(dialog => dialog.employee))));
+            } else {
+                setEmployees(Array.from(new Set(dialogs.filter(dialog => dialog.company === value).map(dialog => dialog.employee))));
+            }
+        }
+
+        if (field === 'employee') {
+            // Обновляем список компаний, когда меняется сотрудник
+            if (value === "") {
+                setCompanies(Array.from(new Set(dialogs.map(dialog => dialog.company))));
+            } else {
+                setCompanies(Array.from(new Set(dialogs.filter(dialog => dialog.employee === value).map(dialog => dialog.company))));
+            }
+        }
     };
 
     const handleSortChange = (field: 'start_time' | 'last_message_time' | 'company' | 'employee', direction: 'asc' | 'desc') => {
@@ -80,7 +97,6 @@ export const DialogsTable = () => {
     const handleDialogClick = (dialog: DialogItem) => {
         setSelectedDialog(dialog);
     };
-    //TODO: фильтры: сделать недоступными имена которые не относятся к компании
 
     return (
         <div>

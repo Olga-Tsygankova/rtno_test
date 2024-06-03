@@ -1,5 +1,5 @@
-import {formatDate} from "../../utils/formateDate";
-import {TableProps} from "../../types/types";
+import {formatDate} from "../../../utils/formateDate";
+import {TableProps} from "../../../types/types";
 
 
 export const Table = ({filteredDialogs, handleDialogClick, handleSortChange, sortConfig}: TableProps) => {
