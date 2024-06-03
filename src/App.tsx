@@ -1,5 +1,5 @@
 import './App.css';
-import DialogsTable from "./DialogsTable/DialogsTable";
+import {DialogsTable} from "./DialogsTable/DialogsTable";
 function App() {
 
   return (
