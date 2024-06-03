@@ -1,3 +1,25 @@
+//import axios from "axios";
+//TODO:для стенда поменять на эти переменные
+
+// const dbUrl = 'https://rtno-test-gamma.vercel.app';
+//
+// const dbUsername = 'default';
+// const dbPassword = 'm6tsX1yDNAoV';
+// const dbName = 'verceldb';
+//
+// axios.get(`${dbUrl}/api/ep-sparkling-wildflower-a4dpub6t-pooler.us-east-1.aws.neon.tech`, {
+//     headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Basic ${btoa(`${dbUsername}:${dbPassword}`)}`,
+//     },
+// })
+//     .then((response) => {
+//         console.log(response.data);
+//     })
+//     .catch((error) => {
+//         console.error(error);
+//     });
+
 const express = require('express');
 const {Pool} = require('pg');
 const cors = require('cors');
@@ -12,17 +34,16 @@ const pool = new Pool({
 });
 const app = express();
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://rtno-test-gamma.vercel.app');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
-});
+app.use(cors({
+    origin: 'http://localhost:3002',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.get('/dialogs_with_comments', async (req, res) => {
     try {
         const client = await pool.connect();
-        const result = await client.query('SELECT * FROM dialog_with_comments');
+        const result = await client.query('SELECT * FROM local_dialog_with_comments');
         const dialogsWithComments = result.rows;
         res.setHeader('Content-Type', 'application/json');
         res.json(dialogsWithComments);
@@ -33,6 +54,6 @@ app.get('/dialogs_with_comments', async (req, res) => {
     }
 });
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+app.listen(3003, () => {
+    console.log('Server is running on port 3003');
 });
