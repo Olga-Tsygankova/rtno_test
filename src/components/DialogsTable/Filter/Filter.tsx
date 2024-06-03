@@ -1,4 +1,5 @@
 import {FilterProps} from "../../../types/types";
+import './Filter.css'
 
 
 export const Filter = ({
@@ -10,7 +11,7 @@ export const Filter = ({
                            handleFilterChange
                        }: FilterProps) => {
     return (
-        <div>
+        <div className="filter">
             <select
                 value={sortConfig.direction}
                 onChange={(e) => handleSortChange(sortConfig.key, e.target.value as 'asc' | 'desc')}

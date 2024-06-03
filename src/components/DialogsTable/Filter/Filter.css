@@ -1,0 +1,17 @@
+.filter{
+    display: flex;
+    gap:2vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter select{
+    padding: 0.5vw;
+    text-align: center;
+    border:none;
+    font-size: 1.2vw ;
+}
+
+.filter select:focus-visible {
+    outline:  none;
+}

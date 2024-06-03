@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios, {AxiosError, AxiosResponse} from 'axios';
 import {InfoChat} from "./InfoChat/InfoChat";
 import {Filter} from "./Filter/Filter";
@@ -103,8 +103,8 @@ export const DialogsTable = () => {
     };
 
     return (
-        <div>
-
+        <div className="dialogs-table">
+            <h1>Таблица диалогов</h1>
             <Filter
                 sortConfig={sortConfig}
                 filters={filters}

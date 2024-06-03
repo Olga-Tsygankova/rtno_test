@@ -5,10 +5,7 @@ function App() {
 
   return (
       <div className="App">
-          <header className="App-header">
-              Таблица
-          </header>
-          <div>
+          <div className="content">
           <SideBar/>
           <DialogsTable/>
           </div>
