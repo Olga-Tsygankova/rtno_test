@@ -1,5 +1,5 @@
 import './App.css';
-import Dialogs from "./dialogs";
+import DialogsTable from "./DialogsTable/DialogsTable";
 function App() {
 
   return (
@@ -7,7 +7,7 @@ function App() {
           <header className="App-header">
               AAAAAAAAAAAAAAAAAAAAAAAAAAAA
           </header>
-          <Dialogs/>
+          <DialogsTable/>
 
       </div>
   );
