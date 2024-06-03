@@ -4,7 +4,7 @@ export type DialogItem = {
     last_message_time: string;
     company: string;
     employee: string;
-    local_comments: string;
+    comments: string;
 }
 
 export type TableProps = {

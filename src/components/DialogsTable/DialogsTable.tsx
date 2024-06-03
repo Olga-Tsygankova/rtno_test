@@ -98,6 +98,10 @@ export const DialogsTable = () => {
         setSelectedDialog(dialog);
     };
 
+    const handleClose = () => {
+        setSelectedDialog(null);
+    };
+
     return (
         <div>
 
@@ -120,7 +124,7 @@ export const DialogsTable = () => {
 
             {selectedDialog && (
 
-                <InfoChat selectedDialog={selectedDialog}/>
+                <InfoChat selectedDialog={selectedDialog} onClose={handleClose}/>
             )}
         </div>
     );
