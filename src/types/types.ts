@@ -5,6 +5,9 @@ export type DialogItem = {
     company: string;
     employee: string;
     comments: string;
+    bot_comments:string;
+    client_comments:string;
+    employee_comments:string;
 }
 
 export type TableProps = {

@@ -2,13 +2,14 @@ import {formatDate} from "../../../utils/formateDate";
 import {DialogItem} from "../../../types/types";
 import {useEffect, useRef, useState} from "react";
 import {AiOutlineClose} from "react-icons/ai";
+import "./InfoChat.css"
 
 type IProps = {
     selectedDialog: DialogItem;
     onClose: () => void; // Функция для закрытия диалога
 };
 
-export const InfoChat = ({ selectedDialog, onClose }: IProps) => {
+export const InfoChat = ({selectedDialog, onClose}: IProps) => {
     const [isHovering, setIsHovering] = useState(false);
     const infoChatRef = useRef<HTMLDivElement>(null);
 
@@ -30,23 +31,29 @@ export const InfoChat = ({ selectedDialog, onClose }: IProps) => {
     }, []);
 
     return (
-        <div ref={infoChatRef} className="info-chat">
-            <div className="info-chat-header">
-                <h3>Dialog Details</h3>
+        <div className="info-chat-wrapper">
+            <div ref={infoChatRef} className="info-chat">
                 <AiOutlineClose
                     className="close-icon"
                     onMouseEnter={() => setIsHovering(true)}
                     onMouseLeave={() => setIsHovering(false)}
                     onClick={handleClose}
-                    style={{ color: isHovering ? 'red' : 'black' }}
+                    style={{color: isHovering ? 'red' : 'black'}}
                 />
-            </div>
-            <div className="info-chat-content">
-                <p>Начало диалога: {formatDate(selectedDialog.start_time)}</p>
-                <p>Конец диалога: {formatDate(selectedDialog.last_message_time)}</p>
-                <p>Компания: {selectedDialog.company}</p>
-                <p>Сотрудник: {selectedDialog.employee}</p>
-                <p>Комментарий: {selectedDialog.comments}</p>
+                <h3>Детали диалога</h3>
+
+                <div className="info-chat-content">
+                    <p>Начало диалога: <br/>{formatDate(selectedDialog.start_time)}</p>
+                    <p>Конец диалога:<br/> {formatDate(selectedDialog.last_message_time)}</p>
+                    <p className="chat">Чат:
+                        <br/>
+                        {selectedDialog.bot_comments}
+                        <br/>
+                        {selectedDialog.client_comments}
+                        <br/>
+                        {selectedDialog.employee_comments}
+                    </p>
+                </div>
             </div>
         </div>
     );

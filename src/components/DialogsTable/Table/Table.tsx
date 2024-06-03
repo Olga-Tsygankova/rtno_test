@@ -1,10 +1,11 @@
 import {formatDate} from "../../../utils/formateDate";
 import {TableProps} from "../../../types/types";
+import "./Table.css"
 
 
 export const Table = ({filteredDialogs, handleDialogClick, handleSortChange, sortConfig}: TableProps) => {
     return (
-        <table>
+        <table className='table' >
             <thead>
             <tr>
                 <th onClick={() => handleSortChange('start_time', sortConfig.direction)}>Начало диалога</th>

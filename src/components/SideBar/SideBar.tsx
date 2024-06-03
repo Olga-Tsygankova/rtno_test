@@ -1,8 +1,9 @@
 import {Attach, Best, Calendar, Call, EveryWhere, Quickly} from "../../icons/Icons";
+import './SideBar.css'
 
 export const SideBar = () => {
     return (
-        <div>
+        <div className="side-bar">
             <a href='#'>
                 <Attach/>
             </a>
