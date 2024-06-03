@@ -21,7 +21,7 @@ export const Table = ({filteredDialogs, handleDialogClick, handleSortChange, sor
                     <td>{formatDate(dialog.last_message_time)}</td>
                     <td>{dialog.company}</td>
                     <td>{dialog.employee}</td>
-                    <td>Нажми на меня</td>
+                    <td>Подробнее...</td>
                 </tr>
             ))}
             </tbody>
