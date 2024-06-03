@@ -1,4 +1,4 @@
-import {FilterProps} from "../../types/types";
+import {FilterProps} from "../../../types/types";
 
 
 export const Filter = ({

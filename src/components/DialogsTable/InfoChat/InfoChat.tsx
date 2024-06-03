@@ -1,5 +1,5 @@
-import {formatDate} from "../../utils/formateDate";
-import {DialogItem} from "../../types/types";
+import {formatDate} from "../../../utils/formateDate";
+import {DialogItem} from "../../../types/types";
 
 type IProps = {
     selectedDialog: DialogItem
