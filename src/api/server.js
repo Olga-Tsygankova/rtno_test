@@ -58,3 +58,5 @@ app.get('/dialogs_with_comments', async (req, res) => {
 app.listen(3003, () => {
     console.log('Server is running on port 3003');
 });
+
+module.exports = app

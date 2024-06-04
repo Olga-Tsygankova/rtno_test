@@ -27,8 +27,13 @@ export const DialogsTable = () => {
     const [employees, setEmployees] = useState<string[]>([]);
 
     useEffect(() => {
-        axios.get('https://rtno-test-gamma.vercel.app/dialogs_with_comments')
+        axios.get('https://rtno-test-gamma.vercel.app/api/dialogs_with_comments')
             .then((response: AxiosResponse<DialogItem[]>) => {
+                console.log('response.data')
+                console.log(response.data)
+                // @ts-ignore
+                if (response.data.includes('!doctype html')) return
+
                 setDialogs(response.data);
                 setFilteredDialogs(response.data);
                 setCompanies(Array.from(new Set(response.data.map(dialog => dialog.company))));

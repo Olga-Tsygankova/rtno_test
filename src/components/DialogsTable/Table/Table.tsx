@@ -5,7 +5,7 @@ import "./Table.css"
 
 export const Table = ({filteredDialogs, handleDialogClick, handleSortChange, sortConfig}: TableProps) => {
     return (
-        <table className='table' >
+        <table className='table'>
             <thead>
             <tr>
                 <th onClick={() => handleSortChange('start_time', sortConfig.direction)}>Начало диалога</th>
@@ -16,7 +16,7 @@ export const Table = ({filteredDialogs, handleDialogClick, handleSortChange, sor
             </tr>
             </thead>
             <tbody>
-            {filteredDialogs.map(dialog => (
+            {filteredDialogs?.map(dialog => (
                 <tr key={dialog.id} onClick={() => handleDialogClick(dialog)}>
                     <td>{formatDate(dialog.start_time)}</td>
                     <td>{formatDate(dialog.last_message_time)}</td>
