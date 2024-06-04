@@ -35,7 +35,7 @@ const pool = new Pool({
 const app = express();
 
 app.use(cors({
-    origin: 'https://rtno-test-gamma.vercel.app/',
+    origin: 'https://rtno-test-gamma.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
