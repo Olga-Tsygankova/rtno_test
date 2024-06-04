@@ -26,16 +26,16 @@ const cors = require('cors');
 
 // Создание соединения с базой данных
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: 'Helga1234',
+    user: 'default',
+    host: 'ep-sparkling-wildflower-a4dpub6t-pooler.us-east-1.aws.neon.tech',
+    database: 'verceldb',
+    password: 'm6tsX1yDNAoV',
     port: 5432,
 });
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://rtno-test-gamma.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
