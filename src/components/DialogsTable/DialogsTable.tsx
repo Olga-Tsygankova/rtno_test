@@ -27,18 +27,18 @@ export const DialogsTable = () => {
     const [employees, setEmployees] = useState<string[]>([]);
 
     useEffect(() => {
-        axios.get('https://rtno-test-gamma.vercel.app/dialogs_with_comments')
-            .then((response: AxiosResponse<DialogItem[]>) => {
-                setDialogs(response.data);
-                setFilteredDialogs(response.data);
-                setCompanies(Array.from(new Set(response.data.map(dialog => dialog.company))));
-                setEmployees(Array.from(new Set(response.data.map(dialog => dialog.employee))));
+        fetch('https://rtno-test-gamma.vercel.app/dialogs_with_comments')
+            .then(response => response.json())
+            .then(data => {
+                setDialogs(data);
+                setFilteredDialogs(data);
+                setCompanies(Array.from(new Set(data.map((dialog:DialogItem) => dialog.company))));
+                setEmployees(Array.from(new Set(data.map((dialog:DialogItem) => dialog.employee))));
             })
-            .catch((error: AxiosError) => {
-                console.error('Error fetching data:', 'Error details:', error);
+            .catch(error => {
+                console.error('Error fetching data:', error);
             });
     }, []);
-
     const filterAndSortDialogs = () => {
         let filtered = dialogs.filter(dialog =>
             dialog.start_time.includes(filters.date) &&
