@@ -4,6 +4,9 @@ import {InfoChat} from "./InfoChat/InfoChat";
 import {Filter} from "./Filter/Filter";
 import {Table} from "./Table/Table";
 import {DialogItem} from "../../types/types";
+import "./DialogsTable.css"
+import {DialogsChart} from "./DialogsChart/DialogsChart";
+
 
 export const DialogsTable = () => {
 
@@ -72,7 +75,7 @@ export const DialogsTable = () => {
             [field]: value
         }));
         if (field === 'company') {
-            // Обновляем список сотрудников, когда меняется компания
+
             if (value === "") {
                 setEmployees(Array.from(new Set(dialogs.map(dialog => dialog.employee))));
             } else {
@@ -81,7 +84,7 @@ export const DialogsTable = () => {
         }
 
         if (field === 'employee') {
-            // Обновляем список компаний, когда меняется сотрудник
+
             if (value === "") {
                 setCompanies(Array.from(new Set(dialogs.map(dialog => dialog.company))));
             } else {
@@ -123,9 +126,10 @@ export const DialogsTable = () => {
             />
 
             {selectedDialog && (
-
                 <InfoChat selectedDialog={selectedDialog} onClose={handleClose}/>
             )}
+            <DialogsChart dialogs={filteredDialogs} selectedCompany={filters.company}/>
+
         </div>
     );
 };

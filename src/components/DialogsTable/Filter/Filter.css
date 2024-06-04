@@ -10,6 +10,7 @@
     text-align: center;
     border:none;
     font-size: 1.2vw ;
+    font-family: "Andale Mono";
 }
 
 .filter select:focus-visible {
