@@ -26,16 +26,15 @@ const pool = new pg.Pool({
 });
 
 // Пример маршрута
-app.get('/', (req, res) => {
-    res.send("Сервер запущен")
-
+app.get('/dialogs_with_comments', (req, res) => {
+    console.log("Запрос на получение данных из базы данных");
     pool.query('SELECT * FROM dialogs_with_comments', (error, result) => {
         if (error) {
-            console.error(error);
+            console.error("Ошибка при выполнении запроса:", error);
             return res.status(500).send('Ошибка при выполнении запроса');
         }
+        console.log("Данные из базы данных успешно получены и отправлены");
         res.json(result.rows);
-
     });
 });
 app.listen(port, () => {
