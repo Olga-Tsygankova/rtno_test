@@ -22,7 +22,7 @@ const dialogSchema = new mongoose.Schema({
 const Dialog = mongoose.model('Dialog', dialogSchema)
 
 app.use(cors({
-    origin: 'https://rtno-test-client.vercel.app/' // Разрешить доступ
+    origin: 'https://rtno-test-client.vercel.app' // Разрешить доступ
 }));
 app.use(express.json())
 
