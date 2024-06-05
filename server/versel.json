@@ -1,5 +1,11 @@
 {
+  "framework": "vercel",
   "version": 2,
+  "packageManager": "npm",
+  "config": {
+    "runtime": "nodejs",
+    "nodeVersion": "18.x"
+  },
   "builds": [
     {
       "src": "*.js",
