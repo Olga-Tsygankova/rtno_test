@@ -46,10 +46,10 @@ app.get('/dialogs_with_comments', async (req, res) => {
         if (dialogs.length === 0) {
             res.status(200).json({message: "Диалогов не найдено"});
         } else {
-            res.json(dialogs)
+            res.send(dialogs)
         }
     } catch (error) {
         console.error("Ошибка при выполнении запроса:", error);
-        res.status(500).send('Ошибка при выполнении запроса');;
+        res.status(500).send('Ошибка при выполнении запроса');
     }
 });
