@@ -9,14 +9,8 @@
   "builds": [
     {
       "src": "*.js",
-      "use": "@vercel/static"
-    }
-  ],
-
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
+      "use": "@vercel/node"
     }
   ]
+
 }
