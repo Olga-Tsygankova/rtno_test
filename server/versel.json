@@ -13,8 +13,10 @@
     }
   ],
 
-  "routes": [
-
-    { "src": "**/*" }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }
