@@ -26,7 +26,7 @@ const pool = new pg.Pool({
 });
 
 // Пример маршрута
-app.get('/dialogs_with_comments', (req, res) => {
+app.get('/', (req, res) => {
     res.send("Сервер запущен")
 
     pool.query('SELECT * FROM dialogs_with_comments', (error, result) => {
@@ -35,6 +35,7 @@ app.get('/dialogs_with_comments', (req, res) => {
             return res.status(500).send('Ошибка при выполнении запроса');
         }
         res.json(result.rows);
+
     });
 });
 app.listen(port, () => {
