@@ -21,7 +21,7 @@ const pool = new pg.Pool({
 });
 
 // Пример маршрута
-app.get('/dialogs_with_comments', (req, res) => {
+app.get('/', (req, res) => {
     pool.query('SELECT * FROM dialogs_with_comments', (error, result) => {
         if (error) {
             console.error(error);
