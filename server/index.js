@@ -22,12 +22,13 @@ const pool = new pg.Pool({
 
 // Пример маршрута
 app.get('/', (req, res) => {
+    res.send("Сервер запущен")
+
     pool.query('SELECT * FROM dialogs_with_comments', (error, result) => {
         if (error) {
             console.error(error);
             return res.status(500).send('Ошибка при выполнении запроса');
         }
-        res.send("Сервер запущен")
         res.json(result.rows);
     });
 });
