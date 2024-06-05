@@ -24,6 +24,12 @@ const pool = new pg.Pool({
         rejectUnauthorized: false
     }
 });
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://rtno-test-client.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
 // Пример маршрута
 app.get('/dialogs_with_comments', (req, res) => {
@@ -35,7 +41,6 @@ app.get('/dialogs_with_comments', (req, res) => {
         }
         console.log("Данные из базы данных успешно получены и отправлены");
         res.json(result.rows);
-        res.send(result.rows)
     });
 });
 app.listen(port, () => {
