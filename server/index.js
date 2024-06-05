@@ -25,16 +25,10 @@ app.use(cookieParser())
 const port=process.env.PORT||3001
 
 const pool = new pg.Pool({
-    user: 'default',
-    host: 'ep-sparkling-wildflower-a4dpub6t-pooler.us-east-1.aws.neon.tech',
-    database: 'dialogs',
-    password: 'm6tsX1yDNAoV',
-    port: 5432,
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
+
+    connectionString: process.env.POSTGRES_URL,
+
+})
 
 
 // Пример маршрута
@@ -49,6 +43,6 @@ app.get('/dialogs_with_comments', (req, res) => {
         res.json(result.rows);
     });
 });
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Сервер запущен на порту ${port}`);
 });
