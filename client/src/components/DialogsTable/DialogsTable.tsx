@@ -26,9 +26,13 @@ export const DialogsTable = () => {
     const [employees, setEmployees] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch('https://rtno-test-eight.vercel.app')
+        fetch('https://rtno-test-eight.vercel.app/dialogs_with_comments', {
+            mode: 'cors'
+        })
+
             .then(response => response.json())
             .then(data => {
+                console.log('Полученные данные:', data)
                 setDialogs(data);
                 setFilteredDialogs(data);
                 setCompanies(Array.from(new Set(data.map((dialog:DialogItem) => dialog.company))));
