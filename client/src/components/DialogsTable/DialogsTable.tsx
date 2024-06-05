@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react';
-import axios, {AxiosError, AxiosResponse} from 'axios';
 import {InfoChat} from "./InfoChat/InfoChat";
 import {Filter} from "./Filter/Filter";
 import {Table} from "./Table/Table";
@@ -27,7 +26,7 @@ export const DialogsTable = () => {
     const [employees, setEmployees] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch('https://rtno-test-gamma.vercel.app/dialogs_with_comments')
+        fetch('https://rtno-test-eight.vercel.app/')
             .then(response => response.json())
             .then(data => {
                 setDialogs(data);
