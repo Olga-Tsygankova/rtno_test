@@ -6,8 +6,8 @@ import express from "express";
 
 const app=express()
 const corsOptions = {
-    origin: 'https://rtno-test-client.vercel.app', // Замените на URL Вашего фронта
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: 'https://rtno-test-client.vercel.app',
+    optionsSuccessStatus: 200
 };
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://rtno-test-client.vercel.app');
@@ -27,7 +27,7 @@ const port=process.env.PORT||3001
 const pool = new pg.Pool({
     user: 'default',
     host: 'ep-sparkling-wildflower-a4dpub6t-pooler.us-east-1.aws.neon.tech',
-    database: 'verceldb',
+    database: 'dialogs',
     password: 'm6tsX1yDNAoV',
     port: 5432,
     connectionString: process.env.DATABASE_URL,
