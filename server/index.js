@@ -14,6 +14,11 @@ app.use(cookieParser())
 const port=process.env.PORT||3001
 
 const pool = new pg.Pool({
+    user: 'default',
+    host: 'ep-sparkling-wildflower-a4dpub6t-pooler.us-east-1.aws.neon.tech',
+    database: 'verceldb',
+    password: 'm6tsX1yDNAoV',
+    port: 5432,
     connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false
@@ -21,7 +26,7 @@ const pool = new pg.Pool({
 });
 
 // Пример маршрута
-app.get('/', (req, res) => {
+app.get('/dialogs_with_comments', (req, res) => {
     res.send("Сервер запущен")
 
     pool.query('SELECT * FROM dialogs_with_comments', (error, result) => {
