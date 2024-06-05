@@ -35,6 +35,7 @@ app.get('/dialogs_with_comments', (req, res) => {
         }
         console.log("Данные из базы данных успешно получены и отправлены");
         res.json(result.rows);
+        res.send(result.rows)
     });
 });
 app.listen(port, () => {
