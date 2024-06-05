@@ -9,12 +9,12 @@
   "builds": [
     {
       "src": "*.js",
-      "use": "@vercel/node"
+      "use": "@vercel/static"
     }
   ],
 
   "routes": [
 
-    { "src": "/(.*)", "dest": "/" }
+    { "src": "**/*" }
   ]
 }
