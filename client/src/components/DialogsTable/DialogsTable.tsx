@@ -26,8 +26,7 @@ export const DialogsTable = () => {
     const [employees, setEmployees] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch('https://rtno-test-ruby.vercel.app/dialogs_with_comments', {
-            mode: 'cors'
+        fetch('http://localhost:3003/dialogs_with_comments', {
         })
 
             .then(response => response.json())

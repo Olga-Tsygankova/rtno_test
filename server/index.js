@@ -22,7 +22,7 @@ const dialogSchema = new mongoose.Schema({
 const Dialog = mongoose.model('Dialog', dialogSchema)
 
 app.use(cors({
-    origin: 'https://rtno-test-client.vercel.app' // Разрешить доступ
+    origin: 'http://localhost:3000' // Разрешить доступ
 }));
 app.use(express.json())
 
@@ -46,7 +46,7 @@ app.get('/dialogs_with_comments', async (req, res) => {
         if (dialogs.length === 0) {
             res.status(200).json({message: "Диалогов не найдено"});
         } else {
-            res.send(dialogs)
+            res.json(dialogs)
         }
     } catch (error) {
         console.error("Ошибка при выполнении запроса:", error);
