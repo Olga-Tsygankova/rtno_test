@@ -6,6 +6,11 @@
     "runtime": "nodejs",
     "nodeVersion": "18.x"
   },
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/index.js", "dest": "/index.js" },
+    { "src": "/dialogs_with_comments", "dest": "/index.js" }
+  ]
   "builds": [
     {
       "src": "*.js",
